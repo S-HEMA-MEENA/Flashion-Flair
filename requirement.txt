@@ -1,0 +1,7 @@
+selenium
+google-generativeai
+IPython
+grpc
+nltk
+textblob
+wordcloud
