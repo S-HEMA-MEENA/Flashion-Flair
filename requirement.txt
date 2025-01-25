@@ -5,3 +5,4 @@ grpc
 nltk
 textblob
 wordcloud
+seaborn
