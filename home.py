@@ -5,6 +5,15 @@ from genai import perform_genai_sentiment_analysis
 import streamlit as st
 import pandas as pd
 
+import subprocess
+import sys
+
+# Ensure pip is installed and up-to-date
+subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "pip"])
+
+# Install the required packages from requirements.txt
+subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
+
 def trendzypage():
     st.title('Sentiment Analysis')
 
