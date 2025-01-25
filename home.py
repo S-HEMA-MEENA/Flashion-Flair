@@ -1,13 +1,18 @@
 import subprocess
 import sys
 
+# Function to install a package using pip
+def install_package(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+# Try installing seaborn if not already installed
 try:
-    # Attempt to upgrade pip
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "pip"])
-    # Install required packages
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
-except subprocess.CalledProcessError as e:
-    print(f"Error during pip install: {e}")
+    import seaborn as sns
+except ImportError:
+    print("Seaborn not found. Installing...")
+    install_package('seaborn')
+    import seaborn as sns  # Import seaborn after installation
+
 
 
 from sentimentalanalysis import load_and_preprocess_data, DataPreparation, DataPreprocessor, ModelTrainer, generate_count_plot, generate_wordclouds, generate_classification_reports
