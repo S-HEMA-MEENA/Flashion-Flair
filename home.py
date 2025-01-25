@@ -1,20 +1,3 @@
-import subprocess
-import sys
-
-# Function to install a package using pip
-def install_package(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-# Try installing seaborn if not already installed
-try:
-    import seaborn as sns
-except ImportError:
-    print("Seaborn not found. Installing...")
-    install_package('seaborn')
-    import seaborn as sns  # Import seaborn after installation
-
-
-
 from sentimentalanalysis import load_and_preprocess_data, DataPreparation, DataPreprocessor, ModelTrainer, generate_count_plot, generate_wordclouds, generate_classification_reports
 from backend.review import extract_reviews
 from sklearn.feature_extraction.text import CountVectorizer
