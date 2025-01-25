@@ -1,10 +1,3 @@
-from sentimentalanalysis import load_and_preprocess_data, DataPreparation, DataPreprocessor, ModelTrainer, generate_count_plot, generate_wordclouds, generate_classification_reports
-from backend.review import extract_reviews
-from sklearn.feature_extraction.text import CountVectorizer
-from genai import perform_genai_sentiment_analysis
-import streamlit as st
-import pandas as pd
-
 import subprocess
 import sys
 
@@ -13,6 +6,13 @@ subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "pip
 
 # Install the required packages from requirements.txt
 subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
+
+from sentimentalanalysis import load_and_preprocess_data, DataPreparation, DataPreprocessor, ModelTrainer, generate_count_plot, generate_wordclouds, generate_classification_reports
+from backend.review import extract_reviews
+from sklearn.feature_extraction.text import CountVectorizer
+from genai import perform_genai_sentiment_analysis
+import streamlit as st
+import pandas as pd
 
 def trendzypage():
     st.title('Sentiment Analysis')
