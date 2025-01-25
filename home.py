@@ -1,11 +1,14 @@
 import subprocess
 import sys
 
-# Ensure pip is installed and up-to-date
-subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "pip"])
+try:
+    # Attempt to upgrade pip
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "pip"])
+    # Install required packages
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
+except subprocess.CalledProcessError as e:
+    print(f"Error during pip install: {e}")
 
-# Install the required packages from requirements.txt
-subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
 
 from sentimentalanalysis import load_and_preprocess_data, DataPreparation, DataPreprocessor, ModelTrainer, generate_count_plot, generate_wordclouds, generate_classification_reports
 from backend.review import extract_reviews
